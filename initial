@@ -1,0 +1,24 @@
+import tkinter as tk
+import time
+
+def update_time():
+    # Get the current time
+    current_time = time.strftime("%H:%M:%S")
+    # Update the label with the current time
+    time_label.config(text=current_time)
+    # Schedule the function to be called again after 1000 milliseconds (1 second)
+    time_label.after(1000, update_time)
+
+# Create the main window
+root = tk.Tk()
+root.title("Digital Watch")
+
+# Create a label to display the time
+time_label = tk.Label(root, font=("Helvetica", 48), bg="black", fg="white")
+time_label.pack()
+
+# Call the update_time function to update the time display
+update_time()
+
+# Run the application
+root.mainloop()
